@@ -1,0 +1,198 @@
+<MenuUI>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Analisis Beton Bertulang'
+            font_size: 32
+            size_hint: (1, 0.2)
+
+        Button:
+            text: 'Balok'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Beam_UI'
+
+        Button:
+            text: 'Kolom'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Column_UI'
+
+        Button:
+            text: 'Exit'
+            size_hint: (1, 0.2)
+            on_press: app.stop()
+
+<BeamUI>:
+    GridLayout:
+        cols: 2
+        rows: 11
+        orientation: 'lr-tb'
+        padding: 5
+        spacing: 7
+
+        Label:
+            id: width_label
+            text: 'Beam Width'
+            font_size: 24
+            size_hint: (0.001, 0.02)
+        TextInput:
+            id: width_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (0.001, 0.2)
+
+        Label:
+            id: height_label
+            text: 'Beam Height'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: height_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: cover_label
+            text: 'Cover Concrete length'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: cover_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: sdim_label
+            text: 'Steel Diameter Size'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: sdim_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: rebar_label
+            text: 'rebar diameter Size'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: rebar_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: ultmoment_label
+            text: 'Ultimate Moment'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: ultmoment_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'Newton'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: fc_label
+            text: 'Concrete Compressive Stress(Fc)'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: fc_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mpa'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: fy_label
+            text: 'Steel Yield Stress (Fy)'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: fy_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mpa'
+            font_size: 24
+            size_hint: (1, 0.2)
+        
+        Label:
+            id: Es_label
+            text: 'Modulus of Elasticity (Es)'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: Es_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mpa'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Button:
+            text: 'Back to Main Menu'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Menu_UI'
+
+        Button:
+            text: 'Submit'
+            size_hint: (1, 0.2)
+            font_size: 24
+            on_press: root.on_submit()
+        
+        Button:
+            text: 'Detailing'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Detail_UI'
+
+<DetailUI>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Sedang Tahap Pengembangan'
+            font_size: 24
+            size_hint: (1, 0.8)
+
+        Button:
+            text: 'Back to Main Menu'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Beam_UI'
+
+<ColumnUI>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Sedang Tahap Pengembangan'
+            font_size: 24
+            size_hint: (1, 0.8)
+
+        Button:
+            text: 'Back to Main Menu'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Menu_UI'
