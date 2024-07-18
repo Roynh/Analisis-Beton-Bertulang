@@ -72,12 +72,12 @@ class RectangleColumn(MainVariable):
         _Bduct = 0.85 * self._fc * self.width * (_ee - self._d)
         _Cduct = (self.SteelUp * self.Asteel) * (self._fy - 0.85*self._fc) * (_ee - self._d + self._dUp) - (self.Asteel*self.SteelDown*self._fy*_ee)
         _ae = self.solve_quadratic(_Aduct, _Bduct, _Cduct)
-        print(_Aduct, _Bduct, _Cduct)
         _ae1 = max(_ae)
         _ce = _ae1 / self._b1
-        strain = ((_ce - self._d)/_ce) * 0.003
+        strain = ((_ce - self._dUp)/_ce) * 0.003
         strain_yield = self._fy/self._es
 
+        print(strain)
         if strain >= strain_yield :
             print('Tulangan sudah luluh')
         else :
