@@ -6,7 +6,7 @@ class MainVariable:
     # Defining concrete design
     def __init__(self, **kwargs: Union[int, Callable[[], int]]) -> None:
 
-        diameters = [10, 13, 19, 22, 25, 29, 32, 36]
+        diameters = [10, 13, 16, 19, 22, 25, 29, 32, 36]
         self.dimparameters = {d: int((1/4) * math.pi * d**2) for d in diameters}
 
         self.parameters = {
@@ -17,8 +17,8 @@ class MainVariable:
             'height': self.getHeight,
             'steeldim' : self.getdim,
             'cover' : self.getcover,
+            'rebar' : self.getRebar,
             'ultimateMoment': self.calculateMoment,
-            'rebarSize' : self.getRebar
         }
 
         # Update the parameters with any provided values
@@ -31,6 +31,7 @@ class MainVariable:
             else:
                 setattr(self, key, value)
 
+        self.Asteel = self.getASteel()
         self._b1 = self.getB1()
         self._d = self.calculate_d()
         self._pbal = self.calculatePbal()
@@ -64,7 +65,7 @@ class MainVariable:
     
     def calculate_d(self) -> float:
         dSteel = self.steeldim
-        _d = self.height - self.cover - self.rebarSize - dSteel/2
+        _d = self.height - self.cover - self.rebar - dSteel/2
         return _d
 
     @property
@@ -128,16 +129,6 @@ class MainVariable:
         self.__dict__['_pmax'] = value
 
     @property
-    def rebarSize(self) -> float:
-        if not hasattr(self, '_rebarSize'):
-            self._rebarSize = self.getRebar()
-        return self._rebarSize
-    
-    @rebarSize.setter
-    def rebarSize(self, value: int) -> None:
-        self.__dict__['rebarSize'] = value
-
-    @property
     def _d(self) -> float:
         if not hasattr(self, '__d'):
             self.__d = self.calculate_d()
@@ -163,6 +154,10 @@ class MainVariable:
         pbal = 0.85 * b1 * (self._fc / self._fy) * (0.003 / (0.003 + (self._fy / self._es)))
         pbal = round(pbal, 6)
         return pbal
+    
+    def getASteel(self) -> int :
+        Asteel = math.pi * (1/4) * self.steeldim**2
+        return Asteel
 
     #For ductile condition
     def calculatePmax(self) -> float:

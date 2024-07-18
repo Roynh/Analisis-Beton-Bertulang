@@ -185,6 +185,175 @@
     BoxLayout:
         orientation: 'vertical'
         padding: 20
+        spacing: 10
+
+        Label:
+            text: 'Pilih Menu Kolom'
+            font_size: 24
+            size_hint: (1, 0.8)
+
+        Button:
+            text: 'Design Kolom Rectangle'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Rectangle_UI'
+
+        Button:
+            text: 'Design Kolom Spiral'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Spiral_UI'
+
+<RectangleUI>:
+    GridLayout:
+        cols: 2
+        rows: 11
+        orientation: 'lr-tb'
+        padding: 5
+        spacing: 7
+
+        Label:
+            id: widthColumn_label
+            text: 'Lebar Kolom'
+            font_size: 24
+            size_hint: (0.001, 0.02)
+        TextInput:
+            id: widthColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (0.001, 0.2)
+
+        Label:
+            id: heightColumn_label
+            text: 'Tinggi Kolom'
+            font_size: 24
+            size_hint: (0.001, 0.02)
+        TextInput:
+            id: heightColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (0.001, 0.2)
+
+        Label:
+            id: steelUpColumn_label
+            text: 'Jumlah Tulangan Tekan
+            font_size: 24
+            size_hint: (0.001, 0.02)
+        TextInput:
+            id: steelUpColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (0.001, 0.2)
+
+        Label:
+            id: steelDownColumn_label
+            text: 'Jumlah Tulangan Tarik'
+            font_size: 24
+            size_hint: (0.001, 0.02)
+        TextInput:
+            id: steelDownColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (0.001, 0.2)
+
+        Label:
+            id: sdimColumn_label
+            text: 'Ukuran Diameter Tulangan'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: sdimColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: coverColumn_label
+            text: 'Ukuran Cover Beton'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: coverColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: rebarColumn_label
+            text: 'Ukuran Diameter Rebar'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: rebarColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mm'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: fcColumn_label
+            text: 'Concrete Compressive Stress(Fc)'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: fcColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mpa'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Label:
+            id: fyColumn_label
+            text: 'Steel Yield Stress (Fy)'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: fyColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mpa'
+            font_size: 24
+            size_hint: (1, 0.2)
+        
+        Label:
+            id: EsColumn_label
+            text: 'Modulus of Elasticity (Es)'
+            font_size: 24
+            size_hint: (1, 0.2)
+        TextInput:
+            id: EsColumn_input
+            multiline: False
+            input_fiter: 'int'
+            hint_text: 'mpa'
+            font_size: 24
+            size_hint: (1, 0.2)
+
+        Button:
+            text: 'Back to Main Menu'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Menu_UI'
+
+        Button:
+            text: 'Diagram Interaksi'
+            size_hint: (1, 0.2)
+            on_press: app.root.on_interactive()
+
+<InteraciveUI>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
         spacing: 20
 
         Label:
@@ -195,4 +364,20 @@
         Button:
             text: 'Back to Main Menu'
             size_hint: (1, 0.2)
-            on_press: app.root.current = 'Menu_UI'
+            on_press: app.root.current = 'Column_UI'
+
+<NonSpiralUI>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Sedang Tahap Pengembangan'
+            font_size: 24
+            size_hint: (1, 0.8)
+
+        Button:
+            text: 'Back to Main Menu'
+            size_hint: (1, 0.2)
+            on_press: app.root.current = 'Column_UI'

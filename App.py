@@ -16,7 +16,7 @@ class BeamUI(Screen):
             'steeldim' : self.ids.sdim_input.text,
             'cover' : self.ids.cover_input.text,
             'ultimateMoment': self.ids.ultmoment_input.text,
-            'rebarSize' : self.ids.rebar_input.text
+            'rebar' : self.ids.rebar_input.text
         }
         new_parameters = {}
         for key, value in self.parameters.items():
@@ -27,12 +27,13 @@ class BeamUI(Screen):
                     new_parameters[key] = float(value)
             else:
                 pass
+            
         beam_instance = Beam(**new_parameters)
         width = beam_instance.width
         height = beam_instance.height
         cover = beam_instance.cover
         sdim = beam_instance.steeldim
-        rebarSize = beam_instance.rebarSize
+        rebar = beam_instance.rebar
         ultmoment = beam_instance.ultimateMoment
         fc = beam_instance._fc
         fy = beam_instance._fy
@@ -41,7 +42,7 @@ class BeamUI(Screen):
         self.ids.width_input.text = str(width)
         self.ids.cover_input.text = str(cover)
         self.ids.sdim_input.text = str(sdim)
-        self.ids.rebar_input.text = str(rebarSize)
+        self.ids.rebar_input.text = str(rebar)
         self.ids.ultmoment_input.text = str(ultmoment)
         self.ids.fc_input.text = str(fc)
         self.ids.fy_input.text = str(fy)
@@ -54,13 +55,26 @@ class DetailUI(Screen):
 class ColumnUI(Screen):
     pass
 
+class RectangleUI(Screen):
+    pass
+
+class SpiralUI(Screen):
+    pass
+
+class InteractiveUI(Screen):
+     def on_interactive(self):
+         pass
+
 class MyApp(App):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(MenuUI(name='Menu_UI'))
         sm.add_widget(BeamUI(name='Beam_UI'))
-        sm.add_widget(ColumnUI(name='Column_UI'))
         sm.add_widget(DetailUI(name='Detail_UI'))
+        sm.add_widget(ColumnUI(name='Column_UI'))
+        sm.add_widget(RectangleUI(name='Rectangle_UI'))
+        sm.add_widget(SpiralUI(name='Interactive_UI'))
+        sm.add_widget(InteractiveUI(name='Spiral_UI'))
         return sm
 
 if __name__ == '__main__':
