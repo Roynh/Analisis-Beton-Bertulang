@@ -49,3 +49,6 @@ Provide step-by-step instructions for getting your development environment up an
 ## Usage
 
 - Periksa Folder Example
+
+## CONTACT
+Linkedin : https://www.linkedin.com/in/raihannaufalhakim/
