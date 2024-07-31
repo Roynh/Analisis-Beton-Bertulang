@@ -25,13 +25,10 @@ Provide step-by-step instructions for getting your development environment up an
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/Roynh/Analisis-Beton-Bertulang
     ```
 
-2. Navigate into the project directory:
-    ```bash
-    cd your-repository
-    ```
+2. Navigate into the project directory
 
 3. Install dependencies:
     ```bash
@@ -40,15 +37,14 @@ Provide step-by-step instructions for getting your development environment up an
     npm install
     ```
 
-4. Configure any necessary environment variables or settings.
-
-5. Run the project:
+4. Run the project:
     ```bash
-    python main.py
+    python App.py
 
 ## Usage
 
-- Periksa Folder Example
+- Periksa Folder Example atau jalankan App.py
 
 ## CONTACT
-Linkedin : https://www.linkedin.com/in/raihannaufalhakim/
+
+- Linkedin : https://www.linkedin.com/in/raihannaufalhakim/
